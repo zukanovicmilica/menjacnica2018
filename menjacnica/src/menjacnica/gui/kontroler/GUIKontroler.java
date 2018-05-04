@@ -5,6 +5,7 @@ import java.io.File;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 
 import menjacnica.Menjacnica;
@@ -51,10 +52,10 @@ public class GUIKontroler {
 		}
 	}
 
-	public static void ucitajIzFajla(JTable table) {
+	public static void ucitajIzFajla(JTable table, JPanel contentPane) {
 		try {
 			JFileChooser fc = new JFileChooser();
-			int returnVal = fc.showOpenDialog(mg);
+			int returnVal = fc.showOpenDialog(contentPane);
 
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				File file = fc.getSelectedFile();
@@ -62,7 +63,7 @@ public class GUIKontroler {
 				prikaziSveValute(table);
 			}
 		} catch (Exception e1) {
-			JOptionPane.showMessageDialog(mg, e1.getMessage(), "Greska", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(contentPane, e1.getMessage(), "Greska", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 

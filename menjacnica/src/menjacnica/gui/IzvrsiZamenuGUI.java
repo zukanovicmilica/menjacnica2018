@@ -86,6 +86,7 @@ public class IzvrsiZamenuGUI extends JFrame {
 
 		// podesavanje
 		this.valuta = valuta;
+		prikaziValutu();
 	}
 
 	private JLabel getLblKupovni() {
@@ -247,6 +248,12 @@ public class IzvrsiZamenuGUI extends JFrame {
 			textFieldKonacniIznos.setColumns(10);
 		}
 		return textFieldKonacniIznos;
+	}
+
+	private void prikaziValutu() {
+		textFieldProdajniKurs.setText("" + valuta.getProdajni());
+		textFieldKupovniKurs.setText("" + valuta.getKupovni());
+		textFieldValuta.setText(valuta.getSkraceniNaziv());
 	}
 
 }

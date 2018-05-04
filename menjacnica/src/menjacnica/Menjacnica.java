@@ -1,11 +1,5 @@
 package menjacnica;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.LinkedList;
 
 import menjacnica.sistemskeoperacije.SODodajValutu;
@@ -14,14 +8,14 @@ import menjacnica.sistemskeoperacije.SOObrisiValutu;
 import menjacnica.sistemskeoperacije.SOSacuvajUFajl;
 import menjacnica.sistemskeoperacije.SOUcitajIzFajla;
 
-public class Menjacnica implements MenjacnicaInterface{
-	
+public class Menjacnica implements MenjacnicaInterface {
+
 	private LinkedList<Valuta> kursnaLista = new LinkedList<Valuta>();
 
 	@Override
 	public void dodajValutu(Valuta valuta) {
 		SODodajValutu.izvrsi(valuta, kursnaLista);
-			
+
 	}
 
 	@Override
@@ -41,7 +35,7 @@ public class Menjacnica implements MenjacnicaInterface{
 
 	@Override
 	public void ucitajIzFajla(String putanja) {
-		SOUcitajIzFajla.izvrsi(putanja, kursnaLista);
+		kursnaLista = SOUcitajIzFajla.izvrsi(putanja);
 	}
 
 	@Override
@@ -49,5 +43,4 @@ public class Menjacnica implements MenjacnicaInterface{
 		SOSacuvajUFajl.izvrsi(putanja, kursnaLista);
 	}
 
-	
 }
